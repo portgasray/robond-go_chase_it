@@ -2,7 +2,7 @@
 
 <launch>
   <!-- World File -->
-  <arg name="world_file" default="$(find my_robot)/worlds/my_dream_world"/>
+  <arg name="world_file" default="$(find my_robot)/worlds/myhouse"/>
   <!-- Launch Gazebo World -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="use_sim_time" value="true" />
@@ -13,11 +13,11 @@
   
   <!-- Robot pose -->
   <arg name="x" default="0"/>  
-  <arg name="y" default="14"/>  
+  <arg name="y" default="-8.7"/>  
   <arg name="z" default="0"/>  
   <arg name="roll" default="0"/>  
   <arg name="pitch" default="0"/>  
-  <arg name="yaw" default="-1.63"/>  
+  <arg name="yaw" default="1.5707"/>  
 
   <!-- Launch other relavant files -->
   <include file="$(find my_robot)/launch/robot_description.launch" />
