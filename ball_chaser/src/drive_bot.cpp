@@ -24,7 +24,7 @@ bool handle_drive_request(ball_chaser::DriveToTarget::Request& req,
     motor_command_publisher.publish(motor_command);
 
     // Wait 2 seconds for robot to action
-    ros::Duration(2).sleep();
+    //ros::Duration(2).sleep();
 
     // Return a response message
     res.msg_feedback = "The request set - linear_x: " + std::to_string(motor_command.linear.x) + " , angular velocities z: " + std::to_string(motor_command.angular.z);
