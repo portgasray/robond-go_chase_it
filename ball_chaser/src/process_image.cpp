@@ -9,7 +9,7 @@ ros::ServiceClient client;
 void drive_robot(float lin_x, float ang_z)
 {
     // TODO: Request a service and pass the velocities to it to drive the robot
-    ROS_INFO_STREAM("Drive the robot to white ball");
+    // ROS_INFO_STREAM("Drive the robot to white ball");
 
     // Request a service 
     ball_chaser::DriveToTarget srv;
@@ -29,18 +29,19 @@ void process_image_callback(const sensor_msgs::Image img)
 
     bool white_ball_presence = true;
     int minimum_boundary =  img.step / 3;
+    ROS_INFO("[IMAGE INFO]: Height: %d, Width: %d, Step: %d", img.height, img.width, img.step);
 
     // TODO: Loop through each pixel in the image and check if there's a bright white one
     // Then, identify if this pixel falls in the left, mid, or right side of the image
     // Depending on the white ball position, call the drive_bot function and pass velocities to it
     // Request a stop when there's no white ball seen by the camera
-    for(int i = 0; i < img.height * img.step; i++) {
-    	if (img.data[i] == white_pixel) {
+    for(int i = 0; i < img.height * img.step; i+=3) {
+    	if (img.data[i] == white_pixel && img.data[i+1] == white_pixel && img.data[i+2] == white_pixel) {
             white_ball_presence = true;
             int pixel_falls = i % img.step;
     		if( pixel_falls < minimum_boundary ) {
                 ROS_INFO("[LEFT]: pixel(%d) < (%d)", pixel_falls, minimum_boundary);
-                drive_robot(0.0, 0.1);
+                drive_robot(0.0, 0.5);
             }
             else if ( pixel_falls >= minimum_boundary && pixel_falls < 2 * minimum_boundary ) {
                 ROS_INFO("[FORWORD]: pixel (%d) >= (%d) and pixel < (%d)", pixel_falls, minimum_boundary, 2*minimum_boundary);
@@ -48,7 +49,7 @@ void process_image_callback(const sensor_msgs::Image img)
             }
             else if ( pixel_falls >= 2 * minimum_boundary ) {
                 ROS_INFO("[RIGHT]: pixel (%d) >= (%d) ", pixel_falls, 2*minimum_boundary);
-                drive_robot(0.0, -0.1);
+                drive_robot(0.0, -0.5);
             }
         break;
 	    }
@@ -56,9 +57,10 @@ void process_image_callback(const sensor_msgs::Image img)
     }
 
     
-    if ( white_ball_presence == false )
+    if ( white_ball_presence == false ) {
         ROS_INFO("[STOP]: no white ball seen by the camera, stop the robot");
         drive_robot(0.0, 0.0);
+    }
 }
 
 int main(int argc, char** argv)
