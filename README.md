@@ -1,2 +1,22 @@
 # robond-go_chase_it
-code for second project of udacity robotics software engineer nanodegree 
+## OverView 
+![Ball_Chaser](images/ball_chaser.png)
+
+
+
+### Preapare Robot
+
+#### Setup Robot
+
+#### Plugin Sensors in Gazebo
+
+
+### House Robot in Gazebo
+
+### Setup Ball Chaser 
+
+
+### Processing Image
+
+
+#### Go Chase It!
