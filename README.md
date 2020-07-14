@@ -16,7 +16,7 @@ Careful for the misspell and this caused the robot unbalanced.
 ![Unblanced Robot](images/unbalance_robot.png)
 
 ## Analyzing the Images
-![Analyzing Image](images/analyze-image)
+![Analyzing Image](images/analyze-image.png)
 
 * Known the difference between `img.width` and `img.step` . [Image Message](http://docs.ros.org/melodic/api/sensor_msgs/html/msg/Image.html)
 
