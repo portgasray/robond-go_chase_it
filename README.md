@@ -9,9 +9,7 @@ After finished the robot model, check syntax by `check_urdf`
 $ check_urdf <(xacro --inorder my_robot.xacro)
 ```
 
-Careful for the misspell and this caused the robot unbalanced.
-
-![misspell](images/misspell.PNG)
+Careful for the misspell `collision` tag and this caused the robot unbalanced.
 
 ![Unblanced Robot](images/unbalance_robot.png)
 
