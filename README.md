@@ -20,3 +20,5 @@
 
 
 #### Go Chase It!
+
+[![](http://img.youtube.com/vi/r7r8TiZP5Z8/0.jpg)](http://www.youtube.com/watch?v=r7r8TiZP5Z8 "Go Chase It!")
