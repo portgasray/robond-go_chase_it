@@ -11,7 +11,7 @@ $ check_urdf <(xacro --inorder my_robot.xacro)
 
 Careful for the misspell and this caused the robot unbalanced.
 
-![misspell](images/misspell.png)
+![misspell](images/misspell.PNG)
 
 ![Unblanced Robot](images/unbalance_robot.png)
 
